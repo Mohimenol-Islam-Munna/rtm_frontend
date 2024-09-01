@@ -1,7 +1,12 @@
 import "./App.css";
+import HomePage from "./pages/HomePage";
 
 function App() {
-  return <h2 className="text-red-500">Project Clean Up</h2>;
+  return (
+    <>
+      <HomePage />
+    </>
+  );
 }
 
 export default App;
