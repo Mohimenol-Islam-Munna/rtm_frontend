@@ -2,7 +2,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 export const ChatBoardHeader = () => {
   return (
-    <div className="w-full h-[50px] flex border-b border-b-[#05D397] p-2">
+    <div className="w-full h-[50px] flex border-b-4 border-b-[#05D397] p-2">
       <div className="w-auto h-full flex-grow justify-center flex items-center">
         <h1 className="text-xs md:text-xl">Md. Mohimenol Islam Munna</h1>
       </div>

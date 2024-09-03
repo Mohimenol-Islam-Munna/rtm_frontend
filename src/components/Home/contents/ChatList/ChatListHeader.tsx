@@ -3,7 +3,7 @@ import { FC } from "react";
 
 export const ChatListHeader: FC = (): JSX.Element => {
   return (
-    <div className="w-full h-[50px] flex items-center  border-b border-b-[#353646]">
+    <div className="w-full h-[50px] flex items-center  border-b-4 border-b-[#353646]">
       <div className="w-[230px] h-full flex-grow p-2 flex justify-center items-center">
         <h4 className="truncate text-lg">Sender</h4>
       </div>
