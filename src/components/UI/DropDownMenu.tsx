@@ -1,50 +1,79 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { useState } from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { FC, useState } from "react";
+import { IconType } from "react-icons";
+import { DataItemType } from "../../pages/types/DropDownTypes";
 
-export function MenuDefault() {
+type Props = {
+  data: DataItemType[];
+  MainIcon: IconType;
+  ChildComponent?: any;
+  width?: number;
+  align?: "start" | "center" | "end";
+  chatStateHandler?: (data: string) => void;
+};
+
+export const DropDownMenu: FC<Props> = ({
+  data,
+  align,
+  width,
+  MainIcon,
+  ChildComponent,
+  chatStateHandler,
+}): JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  console.log("open state: ", open);
-
   return (
-    <div>
-      <DropdownMenu.Root open={open}>
-        <DropdownMenu.Trigger asChild>
-          <div
-            className="border border-red-500 w-[50px]"
-            onClick={() => {
-              console.log("clicked");
-              setOpen((prev) => !prev);
-            }}
-          >
-            <BsThreeDotsVertical className="w-[50%] h-[50%] text-[#05D397]" />
-          </div>
-        </DropdownMenu.Trigger>
+    <DropdownMenu.Root
+      open={open}
+      onOpenChange={() => {
+        setOpen((prev) => !prev);
+      }}
+    >
+      <DropdownMenu.Trigger asChild>
+        <div className="flex items-center justify-center">
+          <MainIcon size="25" className="text-[#05D397] hover:cursor-pointer" />
+        </div>
+      </DropdownMenu.Trigger>
 
-        <DropdownMenu.Portal>
-          <DropdownMenu.Content
-            onFocusOutside={() => {
-              console.log("on focus outside called");
-            }}
-            className="min-w-[220px] bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
-            sideOffset={5}
-          >
-            <DropdownMenu.Item className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
-              New Tab{" "}
-              <div className="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
-                ⌘+T
-              </div>
-            </DropdownMenu.Item>
-            <DropdownMenu.Item className="group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1">
-              New Tab{" "}
-              <div className="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8">
-                ⌘+T
-              </div>
-            </DropdownMenu.Item>
-          </DropdownMenu.Content>
-        </DropdownMenu.Portal>
-      </DropdownMenu.Root>
-    </div>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          align={align || "end"}
+          sideOffset={15}
+          alignOffset={0}
+          className={`${
+            width ? `w-[${width}px]` : "w-[200px]"
+          } bg-[#2E2F40] rounded-xl border-2 border-[#05D397] text-white z-50 overflow-hidden`}
+        >
+          {ChildComponent ? (
+            <>
+              {open && (
+                <ChildComponent
+                  open={open}
+                  chatStateHandler={chatStateHandler}
+                />
+              )}
+            </>
+          ) : (
+            data.map(({ Icon, ...item }: DataItemType, index: number) => {
+              return (
+                <DropdownMenu.Item
+                  key={index}
+                  className={`hover:outline-none hover:bg-[#272838] first:rounded-t-md last:rounded-b-md hover:cursor-pointer p-1 px-2 ${
+                    index === 0 ? "mt-0" : " mt-1"
+                  }`}
+                >
+                  <div className="flex items-center group">
+                    <div>{<Icon size="18" className="text-[#05D397]" />}</div>
+                    <div className="flex-grow ml-1 group-hover:text-[#05D397]">
+                      {item.name}
+                    </div>
+                  </div>
+                </DropdownMenu.Item>
+              );
+            })
+          )}
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
   );
-}
+};

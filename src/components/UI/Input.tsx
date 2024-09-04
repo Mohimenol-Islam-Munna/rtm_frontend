@@ -37,9 +37,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       >
         <input
           type={type}
-          className={`flex h-10 w-full border-none mt-1 bg-[#272838!important] text-white shadow-input rounded-md px-3 py-2 text-sm  placeholder:text-white 
-          focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-400 
-           disabled:cursor-not-allowed disabled:opacity-50 group-hover/input:shadow-none transition duration-400
+          className={`flex h-10 w-full border-none mt-1 bg-[#272838] text-white shadow-input rounded-md px-3 py-2 text-sm
+           placeholder:text-white focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 group-hover/input:shadow-none transition duration-400
            `}
           ref={ref}
           {...props}

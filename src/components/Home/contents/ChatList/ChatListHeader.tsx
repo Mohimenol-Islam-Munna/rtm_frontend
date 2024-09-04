@@ -1,5 +1,7 @@
 import { GoPlusCircle } from "react-icons/go";
 import { FC } from "react";
+import { DropDownMenu } from "../../../UI/DropDownMenu";
+import { chatListHeaderDropdown } from "./chatListHeaderDropdown";
 
 export const ChatListHeader: FC = (): JSX.Element => {
   return (
@@ -8,7 +10,7 @@ export const ChatListHeader: FC = (): JSX.Element => {
         <h4 className="truncate text-lg">Sender</h4>
       </div>
       <div className="w-[60px] h-full flex-grow-0 flex-shrink-0  flex justify-center items-center">
-        <GoPlusCircle className="w-[50%] h-[50%] text-[#05D397]" />
+        <DropDownMenu data={chatListHeaderDropdown} MainIcon={GoPlusCircle} />
       </div>
     </div>
   );

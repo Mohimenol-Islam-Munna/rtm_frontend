@@ -1,0 +1,10 @@
+#EmojiParentComponent > aside > div > div > div > input {
+  background-color: #272838 !important;
+  color: #ffffff !important;
+  border: 1px solid #05d397 !important;
+}
+
+#EmojiParentComponent > aside > div > ul > li > h2 {
+  background-color: #2e2f40 !important;
+  color: #ffffff !important;
+}

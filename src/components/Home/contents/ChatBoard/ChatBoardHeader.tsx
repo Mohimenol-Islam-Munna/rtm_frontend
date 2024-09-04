@@ -1,5 +1,8 @@
 import { FC } from "react";
-import { MenuDefault } from "../../../UI/DropDownMenu";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
+import { DropDownMenu } from "../../../UI/DropDownMenu";
+import { chatBoardHeaderDropdown } from "./ChatBoardDropdowns";
 
 export const ChatBoardHeader: FC = (): JSX.Element => {
   return (
@@ -8,7 +11,10 @@ export const ChatBoardHeader: FC = (): JSX.Element => {
         <h1 className="text-xs md:text-xl">Md. Mohimenol Islam Munna</h1>
       </div>
       <div className="w-[60px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
-        <MenuDefault />
+        <DropDownMenu
+          data={chatBoardHeaderDropdown}
+          MainIcon={BsThreeDotsVertical}
+        />
       </div>
     </div>
   );
