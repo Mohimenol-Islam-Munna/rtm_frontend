@@ -75,7 +75,7 @@ export const ChatBoardBody = () => {
                     <div>
                       {item.partyA.message.map(
                         (item: string, index: number) => (
-                          <div className="relative group">
+                          <div key={index} className="relative group">
                             <p
                               className={`${
                                 index === 0 ? "my-2 mt-0" : "my-2"
@@ -113,7 +113,7 @@ export const ChatBoardBody = () => {
                     <div>
                       {item.partyB.message.map(
                         (item: string, index: number) => (
-                          <div className="relative group">
+                          <div key={index} className="relative group">
                             <p
                               className={`${
                                 index === 0 ? "my-2 mt-0" : "my-2"
