@@ -79,7 +79,7 @@ export const ChatBoardBody = () => {
                             <p
                               className={`${
                                 index === 0 ? "my-2 mt-0" : "my-2"
-                              } bg-[#2E2F40] p-4  border-2 border-transparent rounded-xl group-hover:border-[#05D397] relative z-20`}
+                              } bg-[#2E2F40] p-4  border-2 border-transparent rounded-xl group-hover:border-[#05D397] transition-all ease-in-out duration-500 delay-75 relative z-20`}
                             >
                               {item}
                             </p>
@@ -89,7 +89,7 @@ export const ChatBoardBody = () => {
                                   clipPath:
                                     "polygon(42% 0, 49% 0, 63% 99%, 33% 100%)",
                                 }}
-                                className="absolute -left-[18px] top-[5px] w-[40px] h-[40px] bg-[#2E2F40] -rotate-[65deg] rounded-full z-10 group-hover:bg-[#05D397] pointer-events-auto"
+                                className="absolute -left-[18px] top-[5px] w-[40px] h-[40px] bg-[#2E2F40] -rotate-[65deg] transition-all ease-in-out duration-500 delay-75 rounded-full z-10 group-hover:bg-[#05D397] pointer-events-auto"
                               ></div>
                             )}
                           </div>
@@ -117,7 +117,7 @@ export const ChatBoardBody = () => {
                             <p
                               className={`${
                                 index === 0 ? "my-2 mt-0" : "my-2"
-                              } bg-[#2E2F40] p-4  border-2 border-transparent rounded-lg group-hover:border-[#05D397] relative z-20`}
+                              } bg-[#2E2F40] p-4  border-2 border-transparent rounded-lg group-hover:border-[#05D397] transition-all ease-in-out duration-500 delay-75 relative z-20`}
                             >
                               {item}
                             </p>
@@ -127,7 +127,7 @@ export const ChatBoardBody = () => {
                                   clipPath:
                                     "polygon(42% 0, 49% 0, 63% 99%, 33% 100%)",
                                 }}
-                                className="absolute -right-[18px] top-[5px] w-[40px] h-[40px] bg-[#2E2F40] rotate-[65deg] rounded-full z-10 group-hover:bg-[#05D397] pointer-events-auto"
+                                className="absolute -right-[18px] top-[5px] w-[40px] h-[40px] bg-[#2E2F40] rotate-[65deg] transition-all ease-in-out duration-500 delay-75 rounded-full z-10 group-hover:bg-[#05D397] pointer-events-auto"
                               ></div>
                             )}
                           </div>
