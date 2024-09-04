@@ -1,7 +1,7 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { FC, useState } from "react";
 import { IconType } from "react-icons";
-import { DataItemType } from "../../pages/types/DropDownTypes";
+import { DataItemType } from "../../types/DropDownTypes";
 
 type Props = {
   data: DataItemType[];

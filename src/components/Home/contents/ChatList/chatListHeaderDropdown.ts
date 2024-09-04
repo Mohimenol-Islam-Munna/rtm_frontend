@@ -1,4 +1,4 @@
-import { DataItemType } from "../../../../pages/types/DropDownTypes";
+import { DataItemType } from "../../../../types/DropDownTypes";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { PiStackPlus } from "react-icons/pi";
 
