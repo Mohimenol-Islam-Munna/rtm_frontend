@@ -9,10 +9,6 @@ export const routeList: RouteObject[] = [
         index: true,
         element: <HomePage />,
       },
-      {
-        path: "/kola",
-        element: "<HomePage />",
-      },
     ],
   },
   {
