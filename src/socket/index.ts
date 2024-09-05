@@ -3,13 +3,13 @@ import { io, Manager } from "socket.io-client";
 const URL = "http://localhost:8080";
 
 const socketConfig = {
-  autoConnect: true,
+  autoConnect: false,
   transports: ["websocket"],
-  upgrade: false,
+  upgrade: true,
   reconnectionAttempts: 1,
   reconnectionDelayMax: 5000,
   rejectUnauthorized: false,
-  path: "/custom-socket-io2",
+  path: "/custom-socket-io",
   auth: {},
   query: { token: localStorage.getItem("token") || "" },
 };
