@@ -1,30 +1,35 @@
-import { adminSocket } from "./adminNamespaceIo";
-import { adminRoomOneSocket } from "./adminNamespaceIo/rooms/roomOne";
-import { adminRoomThreeSocket } from "./adminNamespaceIo/rooms/roomThree";
-import { adminRoomTwoSocket } from "./adminNamespaceIo/rooms/roomTwo";
-import { mainSocket } from "./mainNamespaceIo";
+import { adminSocket } from "./adminNamespaceByIo";
+
+import {
+  adminRoomOneSocket,
+  adminRoomTwoSocket,
+  adminRoomThreeSocket,
+} from "./adminNamespaceByIo/rooms";
+
+import { mainSocket } from "./mainNamespaceByIo";
+
 import {
   mainRoomOneSocket,
   mainRoomTwoSocket,
   mainRoomThreeSocket,
-} from "./mainNamespaceIo/rooms";
+} from "./mainNamespaceByIo/rooms";
 
 export const allNamespaceByIo = {
   mainNamespace: {
     mainSocket: mainSocket,
     rooms: {
-      roomOneSocket: mainRoomOneSocket,
-      roomTwoSocket: mainRoomTwoSocket,
-      roomThreeSocket: mainRoomThreeSocket,
+      mainRoomOneSocket: mainRoomOneSocket,
+      mainRoomTwoSocket: mainRoomTwoSocket,
+      mainRoomThreeSocket: mainRoomThreeSocket,
     },
   },
 
   adminNamespace: {
     adminSocket: adminSocket,
     rooms: {
-      roomOneSocket: adminRoomOneSocket,
-      roomTwoSocket: adminRoomTwoSocket,
-      roomThreeSocket: adminRoomThreeSocket,
+      adminRoomOneSocket: adminRoomOneSocket,
+      adminRoomTwoSocket: adminRoomTwoSocket,
+      adminRoomThreeSocket: adminRoomThreeSocket,
     },
   },
 };

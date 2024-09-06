@@ -1,34 +1,39 @@
 import { FC, useEffect } from "react";
 import HomeLayout from "../components/Home";
+// import {useMainSocketConnectionByIo} from "../socket/hooks/connectionByIo/main/useMainSocketConnectionByIo";
+// import {useAdminSocketConnectionByIo} from "../socket/hooks/connectionByIo/admin/useAdminSocketConnectionByIo";
 
-import useMainSocketConnectionByIo from "../socket/hooks/connectionByIo/main/useMainSocketConnectionByIo";
+import { useAdminSocketRoomOneConnectionByIo } from "../socket/hooks/connectionByIo/admin/rooms/useAdminSocketRoomOneConnectionByIo";
 
-import useAdminSocketConnectionByIo from "../socket/hooks/connectionByIo/admin/useAdminSocketConnectionByIo";
 import useNamespaceByIo from "../socket/hooks/namespace/useNamespaceByIo";
 
 export const HomePage: FC = (): JSX.Element => {
-  const mainSocketStateByIo = useMainSocketConnectionByIo();
-  const adminSocketStateByIo = useAdminSocketConnectionByIo();
+  // const mainSocketStateByIo = useMainSocketConnectionByIo();
+  // const adminSocketStateByIo = useAdminSocketConnectionByIo();
+
+  const adminSocketRoomOneStateByIo = useAdminSocketRoomOneConnectionByIo();
 
   const namespaceByIo = useNamespaceByIo();
 
   const { mainNamespace } = namespaceByIo;
 
-  const { mainSocket } = mainNamespace;
+  const {
+    rooms: { mainRoomOneSocket },
+  } = mainNamespace;
 
-  console.log("home adminSocketStateByIo :", adminSocketStateByIo.connected);
+  // console.log("adminSocketRoomOneStateByIo ::", adminSocketRoomOneStateByIo);
 
   useEffect(() => {
-    if (mainSocket.connected) {
-      mainSocket.send(
+    if (mainRoomOneSocket.connected) {
+      mainRoomOneSocket.send(
         "first message event to ensure that connection is created or reconnected"
       );
 
-      mainSocket.on("message", (data) => {
+      mainRoomOneSocket.on("message", (data) => {
         console.log("Received first message event ::", data);
       });
     }
-  }, [mainSocketStateByIo]);
+  }, [adminSocketRoomOneStateByIo]);
 
   return <HomeLayout />;
 };

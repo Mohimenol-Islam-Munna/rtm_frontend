@@ -8,7 +8,6 @@ const extendSocketConfig = {
     room: null,
     token: "admin.bearer.token",
   },
-  query: {},
 };
 
 // connected to admin namespace

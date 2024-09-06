@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useNamespaceByIo from "../../namespace/useNamespaceByIo";
 
-const useMainSocketConnectionByIo = (): any => {
+export const useMainSocketConnectionByIo = (): any => {
   const [mainSocketState, setMainSocketState] = useState<any>({});
 
   const namespaceByIo = useNamespaceByIo();

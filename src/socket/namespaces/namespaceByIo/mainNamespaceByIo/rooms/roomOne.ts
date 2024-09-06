@@ -11,4 +11,4 @@ const extendSocketConfig = {
 };
 
 // connected to main namespace
-export const mainRoomOneSocket = io(`${URL}/`, extendSocketConfig);
+export const mainRoomOneSocket = io(`${URL}`, extendSocketConfig);
