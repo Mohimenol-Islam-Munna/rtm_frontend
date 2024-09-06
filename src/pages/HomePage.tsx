@@ -21,8 +21,6 @@ export const HomePage: FC = (): JSX.Element => {
     rooms: { mainRoomOneSocket },
   } = mainNamespace;
 
-  // console.log("adminSocketRoomOneStateByIo ::", adminSocketRoomOneStateByIo);
-
   useEffect(() => {
     if (mainRoomOneSocket.connected) {
       mainRoomOneSocket.send(

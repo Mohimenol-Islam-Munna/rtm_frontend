@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-import { socketConfig } from "../../../../config";
+import { socketConfig, URL } from "../../../../config";
 
 const extendSocketConfig = {
   ...socketConfig,
