@@ -5,7 +5,7 @@ const extendSocketConfig = {
   ...socketConfig,
   auth: {
     rooms: ["javascript", "python", "golang"],
-    token: "baerer token",
+    token: "bearer token",
   },
 };
 

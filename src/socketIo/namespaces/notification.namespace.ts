@@ -5,7 +5,7 @@ const extendSocketConfig = {
   ...socketConfig,
   auth: {
     rooms: [""],
-    token: "baerer token",
+    token: "bearer token",
   },
 };
 

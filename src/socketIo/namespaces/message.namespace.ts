@@ -5,8 +5,9 @@ const extendSocketConfig = {
   ...socketConfig,
   auth: {
     rooms: ["javascript2python"],
-    token: "baerer token",
+    token: "bearer token",
   },
 };
 
 export const messageSocket = io(messageNamespaceUrl, extendSocketConfig);
+export const messageSocket2 = io(messageNamespaceUrl, extendSocketConfig);
