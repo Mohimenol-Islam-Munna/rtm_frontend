@@ -49,12 +49,20 @@ export const useMessageSocketConnection = (): any => {
 
     messageSocket.io.on("reconnect_attempt", onReconnectAttempt);
 
+    // engine io event
+    const onPacket = () => {
+      console.log("Message socket packet transferred.");
+    };
+
+    messageSocket.io.engine.on("packet", onPacket);
+
     return () => {
       messageSocket.off("connect", onConnect);
       messageSocket.off("connect_error", onConnectError);
 
       messageSocket.off("disconnect", onDisConnect);
       messageSocket.io.off("reconnect_attempt", onReconnectAttempt);
+      messageSocket.io.engine.off("packet", onPacket);
     };
   }, []);
 
