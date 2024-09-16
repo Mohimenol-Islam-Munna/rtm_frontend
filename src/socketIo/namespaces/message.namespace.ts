@@ -10,4 +10,3 @@ const extendSocketConfig = {
 };
 
 export const messageSocket = io(messageNamespaceUrl, extendSocketConfig);
-export const messageSocket2 = io(messageNamespaceUrl, extendSocketConfig);
