@@ -1,10 +1,18 @@
 import { FC } from "react";
 import ChatListContainer from "./ChatListContainer";
 
-export const ChatListBody: FC = (): JSX.Element => {
+type Props = {
+  activeUserBoardChangeHandler: (item: any) => void;
+};
+
+export const ChatListBody: FC<Props> = ({
+  activeUserBoardChangeHandler,
+}): JSX.Element => {
   return (
     <div className="w-full h-[calc(100%-50px)] overflow-y-auto">
-      <ChatListContainer />
+      <ChatListContainer
+        activeUserBoardChangeHandler={activeUserBoardChangeHandler}
+      />
     </div>
   );
 };

@@ -1,7 +1,13 @@
 import { FC } from "react";
 import { ChatListItem } from "./ChatListItem";
 
-export const ChatListContainer: FC = (): JSX.Element => {
+type Props = {
+  activeUserBoardChangeHandler: (item: any) => void;
+};
+
+export const ChatListContainer: FC<Props> = ({
+  activeUserBoardChangeHandler,
+}): JSX.Element => {
   return (
     <div className="w-full h-full">
       {[
@@ -34,7 +40,11 @@ export const ChatListContainer: FC = (): JSX.Element => {
           image: "w",
         },
       ].map((item: any, index: number) => (
-        <ChatListItem key={index} item={item} />
+        <ChatListItem
+          key={index}
+          item={item}
+          activeUserBoardChangeHandler={activeUserBoardChangeHandler}
+        />
       ))}
     </div>
   );

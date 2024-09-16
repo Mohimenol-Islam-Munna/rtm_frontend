@@ -23,3 +23,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #05d397;
 }
+
+input:-webkit-autofill {
+  background-color: #272838;
+  color: #ffffff;
+  transition: all 5000s;
+}

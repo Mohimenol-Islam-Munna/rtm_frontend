@@ -1,10 +1,15 @@
 import { FC } from "react";
 
 import HomeLayout from "../components/Home";
-import useMessageSocketConnection from "../socketIo/hooks/useMessageSocketConnection";
+import { getLocalStorage } from "../utils/localStorage";
+import { Navigate } from "react-router-dom";
 
 export const HomePage: FC = (): JSX.Element => {
-  const messageSocketState = useMessageSocketConnection();
+  const token = getLocalStorage("access_token");
 
-  return <HomeLayout />;
+  if (token) {
+    return <HomeLayout />;
+  } else {
+    return <Navigate to="/sign-in" replace={true} />;
+  }
 };
