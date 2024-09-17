@@ -2,6 +2,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { FC, useState } from "react";
 import { IconType } from "react-icons";
 import { DataItemType } from "../../types/DropDownTypes";
+import { Link } from "react-router-dom";
 
 type Props = {
   data: DataItemType[];
@@ -56,19 +57,20 @@ export const DropDownMenu: FC<Props> = ({
           ) : (
             data.map(({ Icon, ...item }: DataItemType, index: number) => {
               return (
-                <DropdownMenu.Item
-                  key={index}
-                  className={`hover:outline-none hover:bg-[#272838] first:rounded-t-md last:rounded-b-md hover:cursor-pointer p-1 px-2 ${
-                    index === 0 ? "mt-0" : " mt-1"
-                  }`}
-                >
-                  <div className="flex items-center group">
-                    <div>{<Icon size="18" className="text-[#05D397]" />}</div>
-                    <div className="flex-grow ml-1 group-hover:text-[#05D397]">
-                      {item.name}
+                <Link to={item.path as string} key={index}>
+                  <DropdownMenu.Item
+                    className={`hover:outline-none hover:bg-[#272838] first:rounded-t-md last:rounded-b-md hover:cursor-pointer p-1 px-2 ${
+                      index === 0 ? "mt-0" : " mt-1"
+                    }`}
+                  >
+                    <div className="flex items-center group">
+                      <div>{<Icon size="18" className="text-[#05D397]" />}</div>
+                      <div className="flex-grow ml-1 group-hover:text-[#05D397]">
+                        {item.name}
+                      </div>
                     </div>
-                  </div>
-                </DropdownMenu.Item>
+                  </DropdownMenu.Item>
+                </Link>
               );
             })
           )}

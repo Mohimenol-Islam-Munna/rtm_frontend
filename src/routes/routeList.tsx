@@ -6,9 +6,10 @@ import { GroupsPage } from "../pages/GroupsPage";
 import ChatLayout from "../components/Layout/ChatLayout";
 import { NoChatViewPage } from "../pages/NoChatViewPage";
 import UsersLayout from "../components/Layout/UsersLayout";
-import GroupLayout from "../components/Layout/ChatLayout";
 import { NoUserViewPage } from "../pages/NoUserViewPage";
 import { NoGroupViewPage } from "../pages/NoGroupViewPage";
+import GroupLayout from "../components/Layout/GroupLayout";
+import { CreateGroupPage } from "../pages/CreateGroupPage";
 
 export const routeList: RouteObject[] = [
   {
@@ -36,6 +37,10 @@ export const routeList: RouteObject[] = [
           {
             index: true,
             element: <NoGroupViewPage />,
+          },
+          {
+            path: "create",
+            element: <CreateGroupPage />,
           },
           {
             path: ":id",

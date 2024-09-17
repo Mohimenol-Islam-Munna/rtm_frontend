@@ -45,9 +45,31 @@ export const totalSurveyHandler = async () => {
   }
 };
 
-export const singleSurveyHandler = async (id: number | string) => {
+export const messageListHandler = async (id: number | string) => {
   try {
-    const url = `surveys/${id}`;
+    const url = `messages/${id}`;
+
+    const res = await baseApiHandler("get", url, null, true);
+
+    return {
+      message: "Success",
+      data: res.data,
+      error: null,
+    };
+  } catch (err: any) {
+    unAuthorizedErrorHandler(err);
+
+    return {
+      message: "Failed",
+      data: null,
+      error: err,
+    };
+  }
+};
+
+export const groupMessageListHandler = async (id: number | string) => {
+  try {
+    const url = `messages/${id}`;
 
     const res = await baseApiHandler("get", url, null, true);
 
@@ -79,6 +101,30 @@ export const loginHandler = async (data: {
     if (res?.data?.access) {
       setLocalStorage("access_token", res.data.access);
     }
+
+    return {
+      message: "Success",
+      data: res.data,
+      error: null,
+    };
+  } catch (err: any) {
+    return {
+      message: "Failed",
+      data: null,
+      error: err,
+    };
+  }
+};
+
+export const signUpHandler = async (data: {
+  username: string;
+  email: string;
+  password: string;
+}) => {
+  try {
+    const url = "login";
+
+    const res = await baseApiHandler("post", url, data, false);
 
     return {
       message: "Success",
@@ -145,9 +191,9 @@ export const surveyResponseHandler = async (
   }
 };
 
-export const surveyNotParticipateHandler = async (id: number | string) => {
+export const groupListHandler = async () => {
   try {
-    const url = `users-list/${id}`;
+    const url = `group-list`;
 
     const res = await baseApiHandler("get", url, null, true);
 
@@ -167,9 +213,9 @@ export const surveyNotParticipateHandler = async (id: number | string) => {
   }
 };
 
-export const agendaListHandler = async (id: number | string) => {
+export const userListHandler = async () => {
   try {
-    const url = `meetings/${id}`;
+    const url = `users`;
 
     const res = await baseApiHandler("get", url, null, true);
 
@@ -189,9 +235,9 @@ export const agendaListHandler = async (id: number | string) => {
   }
 };
 
-export const meetingListHandler = async () => {
+export const chatListHandler = async () => {
   try {
-    const url = `meetings`;
+    const url = `chat-or-friends`;
 
     const res = await baseApiHandler("get", url, null, true);
 

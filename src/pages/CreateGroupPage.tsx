@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { getLocalStorage } from "../utils/localStorage";
 import { Navigate } from "react-router-dom";
-import { SignUp } from "../components/Features/SignUp";
+import { CreateGroup } from "../components/Features/Groups/CreateGroup";
 
-export const SignUpPage: FC = (): JSX.Element => {
+export const CreateGroupPage: FC = (): JSX.Element => {
   const token = getLocalStorage("access_token");
 
   if (token) {
-    return <Navigate to="/" replace={true} />;
+    return <CreateGroup />;
   } else {
-    return <SignUp />;
+    return <Navigate to="/sign-in" replace={true} />;
   }
 };

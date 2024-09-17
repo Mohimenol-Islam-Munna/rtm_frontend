@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { loginHandler } from "../../../api/apiHandlers";
 import { toast } from "react-toastify";
 
-export const SignIn: FC = (): JSX.Element => {
+export const CreateGroup: FC = (): JSX.Element => {
   const navigate = useNavigate();
 
   const [loginInputState, setLoginInputState] = useState({
@@ -56,9 +56,9 @@ export const SignIn: FC = (): JSX.Element => {
       };
     });
   };
-  
+
   return (
-    <div className="w-full min-h-[100vh] flex justify-center items-center bg-[#272838] text-white bg-dot-black/[1] relative">
+    <div className="w-full min-h-[100vh] flex justify-center items-center bg-[#272838] text-white bg-dot-black/[1] relative border border-red-500">
       <div className="w-[500px] p-8 bg-[#2E2F40] rounded-lg">
         <h2 className="text-center text-3xl text-[#05D397]">Sign In</h2>
         <div className="mt-4">

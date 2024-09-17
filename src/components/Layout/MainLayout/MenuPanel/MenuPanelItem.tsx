@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { MenuType } from "./menuList";
-import { Link, useLocation, useOutlet, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 type Props = {
   item: MenuType;
@@ -12,9 +12,6 @@ export const MenuPanelItem: FC<Props> = ({
   const { pathname } = useLocation();
   const params = useParams();
 
-  console.log("location path :", path);
-  // console.log("location pathname ddd :", pathname.startsWith(`/${path}`));
-
   return path ? (
     <Link to={path}>
       <div
@@ -24,8 +21,8 @@ export const MenuPanelItem: FC<Props> = ({
               ? `${path === "/" ? "" : path}/${params.id}` === pathname
               : path === pathname
           )
-            ? "bg-[#2E2F40] border-b-4 border-b-[#05D397]"
-            : "hover:bg-[#2E2F40] border-b-4 border-b-transparent  hover:border-b-[#05D397]"
+            ? "bg-[#2E2F40] border-b-2 border-b-[#05D397]"
+            : "hover:bg-[#2E2F40] border-b-2 border-b-transparent  hover:border-b-[#05D397]"
         }`}
       >
         <Component className="w-[50%] h-[50%] text-[#05D397]" />
@@ -39,8 +36,8 @@ export const MenuPanelItem: FC<Props> = ({
             ? `${path === "/" ? "" : path}/${params.id}` === pathname
             : path === pathname
         )
-          ? "bg-[#2E2F40] border-b-4 border-b-[#05D397]"
-          : "hover:bg-[#2E2F40] border-b-4 border-b-transparent  hover:border-b-[#05D397]"
+          ? "bg-[#2E2F40] border-b-2 border-b-[#05D397]"
+          : "hover:bg-[#2E2F40] border-b-2 border-b-transparent  hover:border-b-[#05D397]"
       }`}
       onClick={() => {
         clickHandler && clickHandler();

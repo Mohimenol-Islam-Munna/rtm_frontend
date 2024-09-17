@@ -1,24 +1,21 @@
 import { useState, useEffect } from "react";
-import { agendaListHandler } from "../api/apiHandlers";
-import { useParams } from "react-router-dom";
+import { chatListHandler } from "../api/apiHandlers";
 
-type AgendaListType = {
+type ChatListType = {
   isLoading: boolean;
   data: any;
   error: any;
 };
 
-type UseAgendaListType = {
-  agendaList: AgendaListType;
+type UseChatListType = {
+  chatList: ChatListType;
   refetchHandler: () => void;
 };
 
-export const useAgendaList = (): UseAgendaListType => {
-  const params = useParams();
-
+export const useChatList = (): UseChatListType => {
   const [isRefetch, setIsRefetch] = useState<boolean>(false);
 
-  const [agendaList, setAgendaList] = useState<AgendaListType>({
+  const [chatList, setChatList] = useState<ChatListType>({
     isLoading: false,
     data: null,
     error: null,
@@ -30,15 +27,15 @@ export const useAgendaList = (): UseAgendaListType => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setAgendaList({
+      setChatList({
         isLoading: true,
         data: null,
         error: null,
       });
 
-      const res = await agendaListHandler(params.id as string);
+      const res = await chatListHandler();
 
-      setAgendaList({
+      setChatList({
         isLoading: false,
         data: res.data,
         error: res.error,
@@ -48,5 +45,5 @@ export const useAgendaList = (): UseAgendaListType => {
     fetchData();
   }, [isRefetch]);
 
-  return { agendaList, refetchHandler };
+  return { chatList, refetchHandler };
 };
