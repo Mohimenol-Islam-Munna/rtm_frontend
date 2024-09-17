@@ -1,9 +1,9 @@
 import { LiaPaperPlane } from "react-icons/lia";
 import { IoCameraOutline } from "react-icons/io5";
 import { BsEmojiHeartEyes } from "react-icons/bs";
-import { DropDownMenu } from "../../../UI/DropDownMenu";
+import { DropDownMenu } from "../../../../UI/DropDownMenu";
 import { chatBoardFooterEmojiDropdown } from "./ChatBoardDropdowns";
-import { EmojiPickerComponent } from "../../../UI/EmojiPicker";
+import { EmojiPickerComponent } from "../../../../UI/EmojiPicker";
 import { ChangeEvent, useState } from "react";
 
 export const ChatBoardFooter = () => {

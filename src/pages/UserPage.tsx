@@ -1,14 +1,15 @@
 import { FC } from "react";
-
-import HomeLayout from "../components/Home";
 import { getLocalStorage } from "../utils/localStorage";
 import { Navigate } from "react-router-dom";
+import { Users } from "../components/Features/Users";
 
-export const HomePage: FC = (): JSX.Element => {
+type Props = {};
+
+export const UserPage: FC<Props> = (): JSX.Element => {
   const token = getLocalStorage("access_token");
 
   if (token) {
-    return <HomeLayout />;
+    return <Users />;
   } else {
     return <Navigate to="/sign-in" replace={true} />;
   }

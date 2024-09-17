@@ -1,5 +1,5 @@
 import { IoIosLogOut } from "react-icons/io";
-import { DataItemType } from "../../../../types/DropDownTypes";
+import { DataItemType } from "../../../../../types/DropDownTypes";
 
 export const chatBoardHeaderDropdown: DataItemType[] = [
   {

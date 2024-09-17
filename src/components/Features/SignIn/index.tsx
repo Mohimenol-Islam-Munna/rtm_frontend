@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useState } from "react";
-import { Label } from "../UI/Label";
-import { Input } from "../UI/Input";
+import { Label } from "../../UI/Label";
+import { Input } from "../../UI/Input";
 import { useNavigate } from "react-router-dom";
-import { loginHandler } from "../../api/apiHandlers";
+import { loginHandler } from "../../../api/apiHandlers";
 import { toast } from "react-toastify";
 
 export const SignIn: FC = (): JSX.Element => {

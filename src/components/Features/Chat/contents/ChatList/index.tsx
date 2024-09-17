@@ -15,7 +15,7 @@ export const ChatList: FC<Props> = ({
   const { isLoading, error, data } = allData;
 
   return (
-    <div className="w-[290px] h-full flex-grow-0 flex-shrink-0 bg-[#2E2F40]">
+    <div className="">
       <ChatListHeader />
       {isLoading && <h4 className="text-center mt-5">Loading...</h4>}
       {!isLoading && error && <h4 className="text-center mt-5">Error</h4>}

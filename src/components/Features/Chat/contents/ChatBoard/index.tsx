@@ -1,12 +1,12 @@
 import { ChatBoardBody } from "./ChardBoardBody";
 import { ChatBoardFooter } from "./ChatBoardFooter";
-import { ChatBoardHeader } from "./ChatBoardHeader";
 
 export const ChatBoard = () => {
   return (
-    <div className="min-w-[290px] w-full h-full bg-[#272838]">
-      <ChatBoardHeader />
-      <ChatBoardBody />
+    <div className="w-full h-full bg-[#272838]">
+      <div className="w-full h-[calc(100%-70px)] overflow-y-auto">
+        <ChatBoardBody />
+      </div>
       <ChatBoardFooter />
     </div>
   );

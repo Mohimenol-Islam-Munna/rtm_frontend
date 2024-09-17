@@ -1,13 +1,61 @@
 import { RouteObject } from "react-router-dom";
-import { HomePage, SignInPage, SignUpPage, NotFoundPage } from "../pages";
+import { SignInPage, SignUpPage, NotFoundPage, ChatPage } from "../pages";
+import { MainLayout } from "../components/Layout/MainLayout";
+import { UserPage } from "../pages/UserPage";
+import { GroupsPage } from "../pages/GroupsPage";
+import ChatLayout from "../components/Layout/ChatLayout";
+import { NoChatViewPage } from "../pages/NoChatViewPage";
+import UsersLayout from "../components/Layout/UsersLayout";
+import GroupLayout from "../components/Layout/ChatLayout";
+import { NoUserViewPage } from "../pages/NoUserViewPage";
+import { NoGroupViewPage } from "../pages/NoGroupViewPage";
 
 export const routeList: RouteObject[] = [
   {
     path: "/",
+    element: <MainLayout />,
     children: [
       {
-        index: true,
-        element: <HomePage />,
+        path: "users",
+        element: <UsersLayout />,
+        children: [
+          {
+            index: true,
+            element: <NoUserViewPage />,
+          },
+          {
+            path: ":id",
+            element: <UserPage />,
+          },
+        ],
+      },
+      {
+        path: "groups",
+        element: <GroupLayout />,
+        children: [
+          {
+            index: true,
+            element: <NoGroupViewPage />,
+          },
+          {
+            path: ":id",
+            element: <GroupsPage />,
+          },
+        ],
+      },
+      {
+        path: "/",
+        element: <ChatLayout />,
+        children: [
+          {
+            index: true,
+            element: <NoChatViewPage />,
+          },
+          {
+            path: ":id",
+            element: <ChatPage />,
+          },
+        ],
       },
     ],
   },

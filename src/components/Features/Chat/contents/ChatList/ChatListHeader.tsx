@@ -1,6 +1,6 @@
 import { GoPlusCircle } from "react-icons/go";
 import { FC } from "react";
-import { DropDownMenu } from "../../../UI/DropDownMenu";
+import { DropDownMenu } from "../../../../UI/DropDownMenu";
 import { chatListHeaderDropdown } from "./chatListHeaderDropdown";
 
 export const ChatListHeader: FC = (): JSX.Element => {
