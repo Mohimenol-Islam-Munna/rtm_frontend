@@ -15,7 +15,7 @@ export const SecondaryMenu: FC<Props> = ({ allData, type }): JSX.Element => {
   return (
     <div className="w-full h-full">
       <SecondaryMenuHeader type={type} />
-      <div className="w-full h-[calc(100%-50px)] overflow-y-auto dark:bg-black bg-dot-white/[0.1] relative">
+      <div className="w-full h-[calc(100%-50px)] overflow-y-auto bg-dot-white/[0.1] relative">
         {isLoading && <h4 className="text-center mt-5">Loading...</h4>}
         {!isLoading && error && (
           <h4 className="text-center mt-5 text-red-400">Error</h4>

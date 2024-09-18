@@ -38,7 +38,7 @@ export const DropDownMenu: FC<Props> = ({
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          align={align || "end"}
+          align={align || "start"}
           sideOffset={15}
           alignOffset={0}
           className={`${

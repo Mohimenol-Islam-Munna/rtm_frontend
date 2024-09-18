@@ -2,7 +2,7 @@ export const socketConfig = {
   autoConnect: false,
   transports: ["websocket", "polling"],
   upgrade: true,
-  reconnectionAttempts: 5,
+  reconnectionAttempts: 1,
   reconnectionDelayMax: 5000,
   rejectUnauthorized: false,
   path: "/RTM_BACKEND",

@@ -17,7 +17,7 @@ type Props = {
 
 export const SecondaryMenuUserItem: FC<Props> = ({ item }): JSX.Element => {
   return (
-    <div className="w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer">
+    <div className="w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] hover:bg-dot-white/[0.1] relative border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer">
       <div className="w-[50px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
         <RxAvatar className="w-[75%] h-[75%] text-[#05D397]" />
       </div>

@@ -4,9 +4,13 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { DropDownMenu } from "../../../../UI/DropDownMenu";
 import { chatBoardFooterEmojiDropdown } from "./ChatBoardDropdowns";
 import { EmojiPickerComponent } from "../../../../UI/EmojiPicker";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 
-export const ChatBoardFooter = () => {
+type Props = {
+  changeHandler: (value: any) => void;
+};
+
+export const ChatBoardFooter: FC<Props> = ({ changeHandler }): JSX.Element => {
   const [chatState, setChatState] = useState<string>("");
 
   const chatStateHandler = (data: string, onlyEmoji: boolean = false) => {
@@ -27,7 +31,18 @@ export const ChatBoardFooter = () => {
       </div>
 
       <div className="w-auto h-full flex-grow">
-        <form action="" className="w-full h-full">
+        <form
+          className="w-full h-full"
+          onClick={(e) => {
+            e.preventDefault();
+            changeHandler({
+              idd: 10000,
+              user: { id: 1233, userName: "Munna" },
+              date: new Date(),
+              message: [chatState],
+            });
+          }}
+        >
           <div className="w-full h-full flex items-center">
             <div className="w-auto h-full flex-grow py-[10px]">
               <input
@@ -42,7 +57,9 @@ export const ChatBoardFooter = () => {
               />
             </div>
             <div className="w-[60px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
-              <LiaPaperPlane className="w-[50%] h-[50%] text-[#05D397]" />
+              <button type="submit" className="w-full h-full">
+                <LiaPaperPlane className="w-[50%] h-[50%] text-[#05D397]" />
+              </button>
             </div>
           </div>
         </form>

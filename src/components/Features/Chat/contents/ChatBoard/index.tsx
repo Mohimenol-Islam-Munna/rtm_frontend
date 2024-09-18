@@ -1,13 +1,22 @@
+import { FC } from "react";
+import { ApiDataStateType } from "../../../../../types/ApiDataStateType";
 import { ChatBoardBody } from "./ChardBoardBody";
 import { ChatBoardFooter } from "./ChatBoardFooter";
 
-export const ChatBoard = () => {
+type Props = {
+  messageList: ApiDataStateType;
+  changeHandler: (value: any) => void;
+};
+
+export const ChatBoard: FC<Props> = ({ messageList, changeHandler }): JSX.Element => {
   return (
     <div className="w-full h-full bg-[#272838]">
       <div className="w-full h-[calc(100%-70px)] overflow-y-auto">
-        <ChatBoardBody />
+        <ChatBoardBody messageList={messageList} />
       </div>
-      <ChatBoardFooter />
+      <ChatBoardFooter changeHandler={changeHandler}  />
     </div>
   );
 };
+
+

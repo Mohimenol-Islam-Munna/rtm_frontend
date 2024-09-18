@@ -8,6 +8,27 @@ type MessageListType = {
   error: any;
 };
 
+const messageCont = [
+  {
+    id: 1,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: ["hi", "kmn acho"],
+  },
+  {
+    id: 2,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: ["hi", "kmn acho"],
+  },
+];
+
 type UseMessageListType = {
   messageList: MessageListType;
   refetchHandler: () => void;
@@ -40,10 +61,16 @@ export const useMessageList = (): UseMessageListType => {
 
       const res = await messageListHandler(id as string);
 
+      // setMessageList({
+      //   isLoading: false,
+      //   data: res.data,
+      //   error: res.error,
+      // });
+
       setMessageList({
         isLoading: false,
-        data: res.data,
-        error: res.error,
+        data: messageCont,
+        error: null,
       });
     };
 

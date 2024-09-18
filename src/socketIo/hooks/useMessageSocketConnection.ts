@@ -3,6 +3,7 @@ import { messageSocket } from "../namespaces/message.namespace";
 
 export const useMessageSocketConnection = (): any => {
   const [messageSocketState, setMessageSocketState] = useState<any>({});
+  const [currentMessageState, setCurrentMessageState] = useState<any>({});
 
   useEffect(() => {
     messageSocket.connect();
@@ -68,8 +69,10 @@ export const useMessageSocketConnection = (): any => {
 
   useEffect(() => {
     if (messageSocketState.connected) {
-      const getMessage = (data: any) => {
+      const getMessage = (data: any, cb: (res: string) => void) => {
         console.log("Received message ::", data);
+        setCurrentMessageState(data);
+        cb("Get Message");
       };
 
       messageSocket.on("welcome", getMessage);
@@ -80,7 +83,7 @@ export const useMessageSocketConnection = (): any => {
     }
   }, [messageSocketState]);
 
-  return messageSocketState;
+  return { messageSocketState, currentMessageState };
 };
 
 export default useMessageSocketConnection;

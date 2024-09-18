@@ -1,11 +1,11 @@
 import { io } from "socket.io-client";
 import { socketConfig, messageNamespaceUrl } from "../index";
+import { getLocalStorage } from "../../utils/localStorage";
 
 const extendSocketConfig = {
   ...socketConfig,
   auth: {
-    rooms: ["javascript2python"],
-    token: "bearer token",
+    token: `bearer ${getLocalStorage("access_token")}`,
   },
 };
 
