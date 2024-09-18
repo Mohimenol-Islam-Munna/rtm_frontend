@@ -16,6 +16,8 @@ type UseMessageListType = {
 export const useMessageList = (): UseMessageListType => {
   const { id } = useParams();
 
+  console.log("user id:", id);
+
   const [isRefetch, setIsRefetch] = useState<boolean>(false);
 
   const [messageList, setMessageList] = useState<MessageListType>({

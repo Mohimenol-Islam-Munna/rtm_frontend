@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const MenuPanelItem: FC<Props> = ({
-  item: { Component, path, clickHandler },
+  item: { Component, path, clickHandler, name },
 }): JSX.Element => {
   const { pathname } = useLocation();
   const params = useParams();
@@ -21,9 +21,10 @@ export const MenuPanelItem: FC<Props> = ({
               ? `${path === "/" ? "" : path}/${params.id}` === pathname
               : path === pathname
           )
-            ? "bg-[#2E2F40] border-b-2 border-b-[#05D397]"
-            : "hover:bg-[#2E2F40] border-b-2 border-b-transparent  hover:border-b-[#05D397]"
+            ? "bg-[#2E2F40] border-l-2 border-l-[#05D397]"
+            : "hover:bg-[#2E2F40] border-l-2 border-l-transparent  hover:border-l-[#05D397]"
         }`}
+        title={`${name}`}
       >
         <Component className="w-[50%] h-[50%] text-[#05D397]" />
       </div>
@@ -36,12 +37,13 @@ export const MenuPanelItem: FC<Props> = ({
             ? `${path === "/" ? "" : path}/${params.id}` === pathname
             : path === pathname
         )
-          ? "bg-[#2E2F40] border-b-2 border-b-[#05D397]"
-          : "hover:bg-[#2E2F40] border-b-2 border-b-transparent  hover:border-b-[#05D397]"
+          ? "bg-[#2E2F40] border-l-2 border-l-[#05D397]"
+          : "hover:bg-[#2E2F40] border-l-2 border-l-transparent  hover:border-l-[#05D397]"
       }`}
       onClick={() => {
         clickHandler && clickHandler();
       }}
+      title={`${name}`}
     >
       <Component className="w-[50%] h-[50%] text-[#05D397]" />
     </div>

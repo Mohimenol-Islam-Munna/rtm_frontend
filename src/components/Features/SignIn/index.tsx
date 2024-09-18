@@ -4,6 +4,7 @@ import { Input } from "../../UI/Input";
 import { useNavigate } from "react-router-dom";
 import { loginHandler } from "../../../api/apiHandlers";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export const SignIn: FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export const SignIn: FC = (): JSX.Element => {
       };
     });
   };
-  
+
   return (
     <div className="w-full min-h-[100vh] flex justify-center items-center bg-[#272838] text-white bg-dot-black/[1] relative">
       <div className="w-[500px] p-8 bg-[#2E2F40] rounded-lg">
@@ -80,6 +81,7 @@ export const SignIn: FC = (): JSX.Element => {
                 id="email"
                 placeholder="Enter Email Address"
                 type="email"
+                name="email"
                 value={loginInputState.email}
                 onChange={changeHandler}
               />
@@ -90,9 +92,18 @@ export const SignIn: FC = (): JSX.Element => {
                 id="password"
                 placeholder="Enter Password"
                 type="password"
+                name="password"
                 value={loginInputState.password}
                 onChange={changeHandler}
               />
+            </div>
+            <div className="my-2 mr-1">
+              <h6 className="text-[#05D397] text-right">
+                Want to register?
+                <Link to="/sign-up">
+                  <u className="ml-2 cursor-pointer">Sign Up</u>
+                </Link>
+              </h6>
             </div>
             <div className="mt-5">
               <button

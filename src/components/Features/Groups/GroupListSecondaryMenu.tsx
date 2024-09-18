@@ -6,6 +6,7 @@ type Props = {};
 
 export const GroupListSecondaryMenu: FC<Props> = (): JSX.Element => {
   const { groupList, refetchHandler } = useGroupList();
+  console.log("🚀 ~ groupList:", groupList);
 
   return (
     <SecondaryMenu

@@ -55,7 +55,7 @@ export const DropDownMenu: FC<Props> = ({
               )}
             </>
           ) : (
-            data.map(({ Icon, ...item }: DataItemType, index: number) => {
+            data?.map(({ Icon, ...item }: DataItemType, index: number) => {
               return (
                 <Link to={item.path as string} key={index}>
                   <DropdownMenu.Item

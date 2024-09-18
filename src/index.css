@@ -29,3 +29,9 @@ input:-webkit-autofill {
   color: #ffffff;
   transition: all 5000s;
 }
+
+/* customize react-select package style  */
+#customMultiSelect .css-1nmdiq5-menu > .css-qr46ko {
+  padding: 10px !important;
+  background-color: #272838;
+}

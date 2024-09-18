@@ -1,3 +1,4 @@
+import { useMessageList } from "../../../hooks/useMessageList";
 import { ChatBoard } from "./contents";
 
 export type StateDataType = {
@@ -7,6 +8,9 @@ export type StateDataType = {
 };
 
 const Chat = () => {
+  const { messageList } = useMessageList();
+  console.log("🚀 ~ Chat ~ messageList:", messageList)
+
   return (
     <div className="w-full h-full">
       <ChatBoard />

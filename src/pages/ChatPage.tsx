@@ -7,8 +7,6 @@ import Chat from "../components/Features/Chat";
 export const ChatPage: FC = (): JSX.Element => {
   const token = getLocalStorage("access_token");
 
-  console.log("ChatPage token :", token);
-
   if (token) {
     return <Chat />;
   } else {

@@ -98,8 +98,8 @@ export const loginHandler = async (data: {
 
     const res = await baseApiHandler("post", url, data, false);
 
-    if (res?.data?.access) {
-      setLocalStorage("access_token", res.data.access);
+    if (res?.data?.accessToken) {
+      setLocalStorage("access_token", res.data.accessToken);
     }
 
     return {
@@ -117,12 +117,12 @@ export const loginHandler = async (data: {
 };
 
 export const signUpHandler = async (data: {
-  username: string;
+  userName: string;
   email: string;
   password: string;
 }) => {
   try {
-    const url = "login";
+    const url = "signup";
 
     const res = await baseApiHandler("post", url, data, false);
 
@@ -138,6 +138,60 @@ export const signUpHandler = async (data: {
       error: err,
     };
   }
+};
+
+export const sendFriendRequestHandler = async (id: string | number) => {
+  try {
+    const url = "send-friendrequest";
+
+    const res = await baseApiHandler("post", url, { userId: id }, true);
+
+    return {
+      message: "Success",
+      data: res.data,
+      error: null,
+    };
+  } catch (err: any) {
+    return {
+      message: "Failed",
+      data: null,
+      error: err,
+    };
+  }
+};
+
+export const friendRequestActionHandler = async (
+  id: string | number,
+  isAccept: boolean
+) => {
+  try {
+    const url = "accept-friendrequest";
+
+    const res = await baseApiHandler(
+      "post",
+      url,
+      { requesterId: id, isAccept: isAccept },
+      true
+    );
+
+    return {
+      message: "Success",
+      data: res.data,
+      error: null,
+    };
+  } catch (err: any) {
+    return {
+      message: "Failed",
+      data: null,
+      error: err,
+    };
+  }
+};
+
+export const logoutHandler = () => {
+  removeLocalStorage("access_token");
+
+  window.location.href = "/sign-in";
 };
 
 export const surveySubmitHandler = async (data: {
@@ -193,7 +247,7 @@ export const surveyResponseHandler = async (
 
 export const groupListHandler = async () => {
   try {
-    const url = `group-list`;
+    const url = `groups`;
 
     const res = await baseApiHandler("get", url, null, true);
 
@@ -205,6 +259,38 @@ export const groupListHandler = async () => {
   } catch (err: any) {
     unAuthorizedErrorHandler(err);
 
+    return {
+      message: "Failed",
+      data: null,
+      error: err,
+    };
+  }
+};
+
+export const groupCreateHandler = async (data: {
+  groupName: string;
+  userList: string[];
+}) => {
+  try {
+    const url = "create-group";
+
+    const res = await baseApiHandler(
+      "post",
+      url,
+      { groupName: data.groupName, members: data.userList },
+      true
+    );
+
+    if (res?.data?.accessToken) {
+      setLocalStorage("access_token", res.data.accessToken);
+    }
+
+    return {
+      message: "Success",
+      data: res.data,
+      error: null,
+    };
+  } catch (err: any) {
     return {
       message: "Failed",
       data: null,
@@ -237,7 +323,7 @@ export const userListHandler = async () => {
 
 export const chatListHandler = async () => {
   try {
-    const url = `chat-or-friends`;
+    const url = `friend-list`;
 
     const res = await baseApiHandler("get", url, null, true);
 

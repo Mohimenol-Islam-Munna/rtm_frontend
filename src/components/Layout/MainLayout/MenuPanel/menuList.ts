@@ -4,6 +4,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { LiaObjectUngroup } from "react-icons/lia";
 import { IconType } from "react-icons";
 import { MdLogout } from "react-icons/md";
+import { logoutHandler } from "../../../../api/apiHandlers";
 
 export type MenuType = {
   id: number;
@@ -16,21 +17,21 @@ export type MenuType = {
 export const mainMenuList: MenuType[] = [
   {
     id: 1,
-    name: "Chat List or Friend List",
+    name: "Chat",
     Component: IoChatbubblesOutline,
     path: "/",
   },
 
   {
     id: 2,
-    name: "User List",
+    name: "Users",
     Component: HiUsers,
     path: "/users",
   },
 
   {
     id: 3,
-    name: "Group List",
+    name: "Groups",
     Component: LiaObjectUngroup,
     path: "/groups",
   },
@@ -49,7 +50,7 @@ export const footerMenuList: MenuType[] = [
     name: "Logout",
     Component: MdLogout,
     clickHandler: () => {
-      console.log("click handler clicked");
+      logoutHandler();
     },
   },
 ];

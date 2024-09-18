@@ -17,6 +17,7 @@ const configHandler = (
       url: `${baseUrl}/${url}`,
       headers: {
         "Content-type": "application/json",
+        Accept: "application/json",
         Authorization: isAuthenticated ? `Bearer ${token}` : null,
       },
     };
@@ -27,6 +28,7 @@ const configHandler = (
       data: data ? { ...data } : null,
       headers: {
         "Content-type": "application/json",
+        Accept: "application/json",
         Authorization: isAuthenticated ? `Bearer ${token}` : null,
       },
     };

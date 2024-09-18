@@ -37,7 +37,7 @@ export const useGroupList = (): UseGroupListType => {
 
       setGroupList({
         isLoading: false,
-        data: res.data,
+        data: res.data.groups || null,
         error: res.error,
       });
     };

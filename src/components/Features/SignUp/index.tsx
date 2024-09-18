@@ -4,12 +4,13 @@ import { Input } from "../../UI/Input";
 import { useNavigate } from "react-router-dom";
 import { signUpHandler } from "../../../api/apiHandlers";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export const SignUp: FC = (): JSX.Element => {
   const navigate = useNavigate();
 
   const [signUpInputState, setSignUpInputState] = useState({
-    username: "",
+    userName: "",
     email: "",
     password: "",
   });
@@ -37,7 +38,7 @@ export const SignUp: FC = (): JSX.Element => {
 
     if (!res.error) {
       setSignUpInputState({
-        username: "",
+        userName: "",
         email: "",
         password: "",
       });
@@ -77,14 +78,14 @@ export const SignUp: FC = (): JSX.Element => {
             }}
           >
             <div className="mt-5">
-              <Label htmlFor="username">User Name</Label>
+              <Label htmlFor="userName">User Name</Label>
               <Input
-                id="username"
+                id="userName"
                 placeholder="Enter User Name"
                 type="text"
-                name="username"
+                name="userName"
                 required={true}
-                value={signUpInputState.username}
+                value={signUpInputState.userName}
                 onChange={changeHandler}
               />
             </div>
@@ -112,7 +113,15 @@ export const SignUp: FC = (): JSX.Element => {
                 onChange={changeHandler}
               />
             </div>
-            <div className="mt-5">
+            <div className="my-2 mr-1">
+              <h6 className="text-[#05D397] text-right">
+                Have you account already?
+                <Link to="/sign-in">
+                  <u className="ml-2 cursor-pointer">Sign In</u>
+                </Link>
+              </h6>
+            </div>
+            <div className="mt-8">
               <button
                 className={`flex items-center justify-center px-4 w-full text-black ${
                   !signUpState.isLoading
