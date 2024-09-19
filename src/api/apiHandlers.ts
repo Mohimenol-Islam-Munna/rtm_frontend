@@ -1,3 +1,4 @@
+import { messageSocket } from "../socketIo/namespaces/message.namespace";
 import { removeLocalStorage, setLocalStorage } from "../utils/localStorage";
 import { baseApiHandler } from "./axios";
 
@@ -141,11 +142,29 @@ export const signUpHandler = async (data: {
   }
 };
 
-export const sendFriendRequestHandler = async (id: string | number) => {
+export const sendFriendRequestHandler = async (
+  id: string | number,
+  messageSocketState: any
+) => {
   try {
     const url = "send-friendrequest";
 
     const res = await baseApiHandler("post", url, { userId: id }, true);
+
+    const sendNotification = () => {
+      console.log("Send message.");
+    };
+
+    if (messageSocketState.connected) {
+      console.log("targetUserId  notification emit:", id);
+
+      messageSocket.emit(
+        "send_notification",
+        id,
+        "Notification Send",
+        sendNotification
+      );
+    }
 
     return {
       message: "Success",

@@ -5,6 +5,8 @@ import { DropDownMenu } from "../../../../UI/DropDownMenu";
 import { chatBoardFooterEmojiDropdown } from "./ChatBoardDropdowns";
 import { EmojiPickerComponent } from "../../../../UI/EmojiPicker";
 import { ChangeEvent, FC } from "react";
+import { useParams } from "react-router-dom";
+import { getLocalStorage } from "../../../../../utils/localStorage";
 
 type Props = {
   changeHandler: (value: any) => void;
@@ -17,6 +19,7 @@ export const ChatBoardFooter: FC<Props> = ({
   changeHandler,
   chatStateHandler,
 }): JSX.Element => {
+  const { id: targetUserId } = useParams();
   return (
     <div className="w-full h-[70px] flex items-center">
       <div className="w-[60px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
@@ -38,8 +41,12 @@ export const ChatBoardFooter: FC<Props> = ({
 
             if (chatState) {
               const data = {
-                idd: 10000,
-                user: { id: 1233, userName: "Munna" },
+                user: {
+                  id: targetUserId,
+                  userName: targetUserId,
+                  isSender: true,
+                  isReceiver: false,
+                },
                 date: new Date(),
                 message: chatState,
               };

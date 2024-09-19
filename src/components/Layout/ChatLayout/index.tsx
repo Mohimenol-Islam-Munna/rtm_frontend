@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { ChatBoardHeader } from "../../Features/Chat/contents/ChatBoard/ChatBoardHeader";
 import { ChatListSecondaryMenu } from "../../Features/Chat/contents/ChatListSecondaryMenu";
+import { ContextType } from "../MainLayout";
 
 export type StateDataType = {
   isLoading: boolean;
@@ -10,6 +11,8 @@ export type StateDataType = {
 };
 
 const ChatLayout: FC = (): JSX.Element => {
+  const mainContext = useOutletContext<ContextType>();
+
   return (
     <div className="w-full">
       <div className="w-full flex">
@@ -21,7 +24,7 @@ const ChatLayout: FC = (): JSX.Element => {
             <ChatBoardHeader />
           </div>
           <div className="w-full h-[calc(100%-50px)]">
-            <Outlet />
+            <Outlet context={mainContext} />
           </div>
         </div>
       </div>

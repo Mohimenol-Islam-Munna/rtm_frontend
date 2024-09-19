@@ -9,6 +9,8 @@ import {
   friendRequestActionHandler,
   sendFriendRequestHandler,
 } from "../../../api/apiHandlers";
+import { useOutletContext, useParams } from "react-router-dom";
+import { ContextType } from "../../Layout/MainLayout";
 
 type Props = {
   item: any;
@@ -16,8 +18,17 @@ type Props = {
 };
 
 export const SecondaryMenuUserItem: FC<Props> = ({ item }): JSX.Element => {
+  const { id } = useParams();
+
+  const { currentMessageState, messageSocketState } =
+    useOutletContext<ContextType>();
+
   return (
-    <div className="w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] hover:bg-dot-white/[0.1] relative border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer">
+    <div
+      className={`w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] hover:bg-dot-white/[0.1] relative border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer ${
+        id == item._id && "bg-[#272838] bg-dot-white/[0.1]"
+      }`}
+    >
       <div className="w-[50px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
         <RxAvatar className="w-[75%] h-[75%] text-[#05D397]" />
       </div>
@@ -41,7 +52,7 @@ export const SecondaryMenuUserItem: FC<Props> = ({ item }): JSX.Element => {
             className="text-[#05D397] hover:cursor-pointer"
             title={"Add Friend"}
             onClick={() => {
-              sendFriendRequestHandler(item._id);
+              sendFriendRequestHandler(item._id, messageSocketState);
             }}
           />
         )}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useMessageList } from "../../../hooks/useMessageList";
-import useMessageSocketConnection from "../../../socketIo/hooks/useMessageSocketConnection";
 import { ChatBoard } from "./contents";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { messageSocket } from "../../../socketIo/namespaces/message.namespace";
+import { ContextType } from "../../Layout/MainLayout";
 
 export type StateDataType = {
   isLoading: boolean;
@@ -12,9 +12,10 @@ export type StateDataType = {
 };
 
 const Chat = () => {
+  const { currentMessageState, messageSocketState } =
+    useOutletContext<ContextType>();
+
   const { id: targetUserId } = useParams();
-  const { messageSocketState, currentMessageState } =
-    useMessageSocketConnection();
 
   const [combineMessageState, setCombineMessageState] = useState<any[] | []>(
     []
@@ -37,13 +38,17 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    setCombineMessageState([]);
+  }, [targetUserId]);
+
+  useEffect(() => {
     setCombineMessageState((prev: any[] | []) => {
       return [...(data || [])];
     });
   }, [data]);
 
   useEffect(() => {
-    if (currentMessageState) {
+    if (currentMessageState && currentMessageState.user.id === targetUserId) {
       setCombineMessageState((prev: any[] | []) => {
         return [...prev, currentMessageState];
       });

@@ -8,89 +8,7 @@ type MessageListType = {
   error: any;
 };
 
-const messageCont = [
-  {
-    id: "66eae4a3a2edd5a58da66c1b",
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "hi kmn acho",
-  },
-  {
-    id: 2,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: 3,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: "66eae4a3a2edd5a58da66c1b",
-    user: {
-      id: 4,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: 5,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: 6,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: 7,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: "66eae4a3a2edd5a58da66c1b",
-    user: {
-      id: 8,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-  {
-    id: 9,
-    user: {
-      id: 1,
-      userName: "munna",
-    },
-    date: "10/09/23",
-    message: "vlo achi",
-  },
-];
+const messageCont = [];
 
 type UseMessageListType = {
   messageList: MessageListType;
@@ -122,16 +40,10 @@ export const useMessageList = (): UseMessageListType => {
 
       const res = await messageListHandler(id as string);
 
-      // setMessageList({
-      //   isLoading: false,
-      //   data: res.data,
-      //   error: res.error,
-      // });
-
       setMessageList({
         isLoading: false,
-        data: messageCont,
-        error: null,
+        data: res.data,
+        error: res.error,
       });
     };
 

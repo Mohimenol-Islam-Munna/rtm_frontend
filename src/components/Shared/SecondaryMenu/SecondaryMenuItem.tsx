@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { RxAvatar } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GoPlusCircle } from "react-icons/go";
 
 type Props = {
@@ -8,10 +8,16 @@ type Props = {
   type: string;
 };
 
-export const SecondaryMenuItem: FC<Props> = ({ item, type }): JSX.Element => {
+export const SecondaryMenuItem: FC<Props> = ({ item }): JSX.Element => {
+  const { id } = useParams();
+
   return (
     <Link to={`${item._id}`}>
-      <div className="w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] hover:bg-dot-white/[0.1] relative border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer">
+      <div
+        className={`w-full h-[70px] overflow-hidden transition-all ease-in-out duration-500 delay-75 flex items-center hover:bg-[#272838] hover:bg-dot-white/[0.1] relative border-b-2 border-b-transparent hover:border-b-[#05D397] cursor-pointer ${
+          id == item._id && "bg-[#272838] bg-dot-white/[0.1]"
+        }`}
+      >
         <div className="w-[60px] h-full flex-grow-0 flex-shrink-0 flex justify-center items-center">
           <RxAvatar className="w-[50%] h-[50%] text-[#05D397]" />
         </div>

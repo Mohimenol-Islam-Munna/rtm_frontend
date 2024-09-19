@@ -17,6 +17,8 @@ export const ChatBoardBody: FC<Props> = ({
 
   const { id } = useParams();
 
+  console.log("combineMessageState 50:", combineMessageState);
+
   return (
     <div
       id="chatBoardArea"
@@ -25,15 +27,15 @@ export const ChatBoardBody: FC<Props> = ({
       {isLoading && <h4 className="text-center mt-5">Loading...</h4>}
       {!isLoading && error && (
         <h4 className="text-center mt-5 text-red-400">
-          Cant fetch previous data
+          Can't fetch previous data
         </h4>
       )}
       <div>
         {!isLoading &&
           combineMessageState &&
           combineMessageState.map((item: any) => (
-            <div key={item.id}>
-              {item?.id === id ? (
+            <div key={item?.user?.id}>
+              {item?.user?.isReceiver && (
                 <div className="my-4 flex p-4 justify-start">
                   <div className="basis-full md:basis-1/2 lg:basis-1/3 flex">
                     <div className="w-[60px] h-[50px] flex justify-center">
@@ -60,13 +62,15 @@ export const ChatBoardBody: FC<Props> = ({
                         </div>
                       </div>
                       <div className="w-full flex justify-between items-center text-xs">
-                        <h4>{item.user.userName}</h4>
-                        <h4>{dayjs(item.date).format("dd/mm/yyyy")}</h4>
+                        {/* <h4>{item.user.id}</h4> */}
+                        <h4>{dayjs(item.date).format("DD/MM/YYYY")}</h4>
                       </div>
                     </div>
                   </div>
                 </div>
-              ) : (
+              )}
+
+              {item?.user?.isSender && (
                 <div className="my-4 flex p-4 justify-end">
                   <div className="basis-full md:basis-1/2 lg:basis-1/3 flex flex-row-reverse">
                     <div className="w-[60px] h-[50px] flex justify-center">
@@ -92,8 +96,8 @@ export const ChatBoardBody: FC<Props> = ({
                         </div>
                       </div>
                       <div className="w-full flex justify-between items-center flex-row-reverse text-xs">
-                        <h4>{item.userName}</h4>
-                        <h4>{dayjs(item.date).format("dd/yy/yyyy")}</h4>
+                        {/* <h4>{item.user.id}</h4> */}
+                        <h4>{dayjs(item.date).format("DD/MM/YYYY")}</h4>
                       </div>
                     </div>
                   </div>
