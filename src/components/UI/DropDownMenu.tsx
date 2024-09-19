@@ -10,7 +10,7 @@ type Props = {
   ChildComponent?: any;
   width?: number;
   align?: "start" | "center" | "end";
-  chatStateHandler?: (data: string) => void;
+  chatStateHandler?: (data: string, onlyEmoji: boolean) => void;
 };
 
 export const DropDownMenu: FC<Props> = ({

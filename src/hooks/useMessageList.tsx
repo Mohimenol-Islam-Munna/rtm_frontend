@@ -10,13 +10,13 @@ type MessageListType = {
 
 const messageCont = [
   {
-    id: 1,
+    id: "66eae4a3a2edd5a58da66c1b",
     user: {
       id: 1,
       userName: "munna",
     },
     date: "10/09/23",
-    message: ["hi", "kmn acho"],
+    message: "hi kmn acho",
   },
   {
     id: 2,
@@ -25,7 +25,70 @@ const messageCont = [
       userName: "munna",
     },
     date: "10/09/23",
-    message: ["hi", "kmn acho"],
+    message: "vlo achi",
+  },
+  {
+    id: 3,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: "66eae4a3a2edd5a58da66c1b",
+    user: {
+      id: 4,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: 5,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: 6,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: 7,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: "66eae4a3a2edd5a58da66c1b",
+    user: {
+      id: 8,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
+  },
+  {
+    id: 9,
+    user: {
+      id: 1,
+      userName: "munna",
+    },
+    date: "10/09/23",
+    message: "vlo achi",
   },
 ];
 
@@ -36,8 +99,6 @@ type UseMessageListType = {
 
 export const useMessageList = (): UseMessageListType => {
   const { id } = useParams();
-
-  console.log("user id:", id);
 
   const [isRefetch, setIsRefetch] = useState<boolean>(false);
 

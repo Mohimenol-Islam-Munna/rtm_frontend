@@ -10,6 +10,7 @@ export const EmojiPickerComponent: FC<Props> = ({
   chatStateHandler,
 }): JSX.Element => {
   const handleEmojiSelect = (emojiData: EmojiClickData) => {
+    console.log("🚀 ~ handleEmojiSelect ~ emojiData:", emojiData);
     chatStateHandler && chatStateHandler(emojiData.emoji || "", true);
   };
 

@@ -100,6 +100,7 @@ export const loginHandler = async (data: {
 
     if (res?.data?.accessToken) {
       setLocalStorage("access_token", res.data.accessToken);
+      setLocalStorage("user_id", res.data.userId);
     }
 
     return {
