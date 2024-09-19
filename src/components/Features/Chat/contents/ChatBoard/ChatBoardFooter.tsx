@@ -41,12 +41,15 @@ export const ChatBoardFooter: FC<Props> = ({
 
             if (chatState) {
               const data = {
-                user: {
+                sender: {
+                  id: getLocalStorage("user_id"),
+                  userName: getLocalStorage("user_id"),
+                },
+                receiver: {
                   id: targetUserId,
                   userName: targetUserId,
-                  isSender: true,
-                  isReceiver: false,
                 },
+                chatId: `${getLocalStorage("user_id")}_${targetUserId}`,
                 date: new Date(),
                 message: chatState,
               };

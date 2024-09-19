@@ -38,17 +38,13 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    setCombineMessageState([]);
-  }, [targetUserId]);
-
-  useEffect(() => {
     setCombineMessageState((prev: any[] | []) => {
       return [...(data || [])];
     });
   }, [data]);
 
   useEffect(() => {
-    if (currentMessageState && currentMessageState.user.id === targetUserId) {
+    if (currentMessageState) {
       setCombineMessageState((prev: any[] | []) => {
         return [...prev, currentMessageState];
       });
@@ -66,7 +62,6 @@ const Chat = () => {
       };
 
       if (messageSocketState.connected) {
-        console.log("targetUserId :", targetUserId);
         messageSocket.emit(
           "send_message",
           targetUserId,
@@ -92,6 +87,7 @@ const Chat = () => {
 
   // console.log("🚀 ~ Chat ~ combineMessageState:", combineMessageState);
   // console.log("🚀 ~ Chat ~ messageSocketState:", messageSocketState);
+  console.log("🚀 ~ Chat ~ inputMessageState:", inputMessageState);
 
   return (
     <div className="w-full h-full">
