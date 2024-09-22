@@ -9,7 +9,11 @@ type Props = {
   refetchHandler: () => void;
 };
 
-export const SecondaryMenu: FC<Props> = ({ allData, type }): JSX.Element => {
+export const SecondaryMenu: FC<Props> = ({
+  allData,
+  type,
+  refetchHandler,
+}): JSX.Element => {
   const { isLoading, error, data } = allData;
 
   return (
@@ -24,7 +28,11 @@ export const SecondaryMenu: FC<Props> = ({ allData, type }): JSX.Element => {
           <h4 className="text-center mt-5">No Data Found</h4>
         )}
         {!isLoading && !error && data && (
-          <SecondaryMenuBody data={data} type={type} />
+          <SecondaryMenuBody
+            data={data}
+            type={type}
+            refetchHandler={refetchHandler}
+          />
         )}
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { RxAvatar } from "react-icons/rx";
 import { Link, useParams } from "react-router-dom";
-import { GoPlusCircle } from "react-icons/go";
 
 type Props = {
   item: any;
   type: string;
+  refetchHandler: () => void;
 };
 
 export const SecondaryMenuItem: FC<Props> = ({ item }): JSX.Element => {

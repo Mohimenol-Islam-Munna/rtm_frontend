@@ -85,10 +85,6 @@ const Chat = () => {
     }
   }, [combineMessageState]);
 
-  // console.log("🚀 ~ Chat ~ combineMessageState:", combineMessageState);
-  // console.log("🚀 ~ Chat ~ messageSocketState:", messageSocketState);
-  console.log("🚀 ~ Chat ~ inputMessageState:", inputMessageState);
-
   return (
     <div className="w-full h-full">
       <ChatBoard

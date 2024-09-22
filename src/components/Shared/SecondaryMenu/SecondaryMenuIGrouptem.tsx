@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 type Props = {
   item: any;
   type: string;
+  refetchHandler: () => void;
 };
 
 export const SecondaryMenuGroupItem: FC<Props> = ({

@@ -25,7 +25,7 @@ export const ChatBoardBody: FC<Props> = ({
   return (
     <div
       id="chatBoardArea"
-      className="w-full min-h-full p-2 dark:bg-black dark:bg-dot-white/[1] bg-dot-black/[1] relative"
+      className="w-full min-h-full p-2 bg-dot-black/[1] relative"
     >
       {isLoading && <h4 className="text-center mt-5">Loading...</h4>}
       {!isLoading && error && (

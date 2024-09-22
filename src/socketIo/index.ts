@@ -1,6 +1,6 @@
 export const socketConfig = {
   autoConnect: false,
-  transports: ["websocket", "polling"],
+  transports: ["polling", "websocket"],
   upgrade: true,
   reconnectionAttempts: 50,
   reconnectionDelayMax: 5000,
